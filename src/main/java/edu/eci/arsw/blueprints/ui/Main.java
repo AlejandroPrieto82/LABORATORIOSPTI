@@ -19,7 +19,7 @@ public class Main {
     BlueprintsServices blueprintsServices = context.getBean(BlueprintsServices.class);
 
     String autor = "author1";
-    
+
     // Crear y registrar nuevos planos
     Point[] pts1 = new Point[] { new Point(10, 10), new Point(20, 20) };
     Blueprint bp1 = new Blueprint(autor, "bp1", pts1);
@@ -31,16 +31,22 @@ public class Main {
 
     // Consultar planos por autor
     try {
-      logger.info("Blueprints by {}:", autor);
-      for (Blueprint bp : blueprintsServices.getBlueprintsByAuthor(autor)) {
-        logger.info(bp.toString());
+      if (logger.isInfoEnabled()) {
+        logger.info("Blueprints by {}:", autor);
+        for (Blueprint bp : blueprintsServices.getBlueprintsByAuthor(autor)) {
+          logger.info(bp.toString());
+        }
       }
 
       // Consultar un plano específico
       Blueprint retrievedBp = blueprintsServices.getBlueprint(autor, "bp1");
-      logger.info("Retrieved blueprint: {}", retrievedBp);
+      if (logger.isInfoEnabled()) {
+        logger.info("Retrieved blueprint: {}", retrievedBp);
+      }
     } catch (Exception e) {
-      logger.error("No se encontró el plano.", e);
+      if (logger.isErrorEnabled()) {
+        logger.error("No se encontró el plano.", e);
+      }
     }
 
     ((AnnotationConfigApplicationContext) context).close();

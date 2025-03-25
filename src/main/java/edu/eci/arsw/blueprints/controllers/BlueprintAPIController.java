@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,7 +27,7 @@ public class BlueprintAPIController {
 
   @Autowired
   private BlueprintsServices blueprintsServices;
-  @RequestMapping(method = RequestMethod.GET)
+  @GetMapping()
   public ResponseEntity<Set<Blueprint>> getAllBlueprints() {
       try {
           Set<Blueprint> blueprints = blueprintsServices.getAllBlueprints();
@@ -66,7 +67,7 @@ public ResponseEntity<Blueprint> getBlueprint(
     }
 }
 
-  @RequestMapping(method = RequestMethod.POST)
+  @PostMapping()
   public ResponseEntity<?> addNewBlueprint(@RequestBody Blueprint blueprint) {
     try {
       blueprintsServices.addNewBlueprint(blueprint);
