@@ -1,16 +1,17 @@
 package edu.eci.arsw.blueprints.persistence.impl;
 
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+
+import org.springframework.stereotype.Repository;
+
 import edu.eci.arsw.blueprints.model.Blueprint;
 import edu.eci.arsw.blueprints.model.Point;
 import edu.eci.arsw.blueprints.persistence.BlueprintNotFoundException;
 import edu.eci.arsw.blueprints.persistence.BlueprintPersistenceException;
 import edu.eci.arsw.blueprints.persistence.BlueprintsPersistence;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-import org.springframework.stereotype.Repository;
 
 @Repository
 public class InMemoryBlueprintPersistence implements BlueprintsPersistence {
@@ -47,22 +48,24 @@ public class InMemoryBlueprintPersistence implements BlueprintsPersistence {
       blueprints.put(new Tuple<>(bp.getAuthor(), bp.getName()), bp);
     }
   }
-
   @Override
   public Set<Blueprint> getBlueprintsByAuthor(String author)
-    throws BlueprintNotFoundException {
-    Set<Blueprint> result = new HashSet<>();
-    for (Tuple<String, String> key : blueprints.keySet()) {
-      if (key.getElem1().equals(author)) {
-        result.add(blueprints.get(key));
+      throws BlueprintNotFoundException {
+      Set<Blueprint> result = new HashSet<>();
+      
+      for (Map.Entry<Tuple<String, String>, Blueprint> entry : blueprints.entrySet()) {
+          if (entry.getKey().getElem1().equals(author)) {
+              result.add(entry.getValue());
+          }
       }
-    }
-    if (result.isEmpty()) {
-      throw new BlueprintNotFoundException("Author not found: " + author);
-    }
-    return result;
+      
+      if (result.isEmpty()) {
+          throw new BlueprintNotFoundException("Author not found: " + author);
+      }
+      
+      return result;
   }
-
+  
   @Override
   public synchronized Blueprint getBlueprint(String author, String name)
     throws BlueprintNotFoundException {
@@ -72,17 +75,20 @@ public class InMemoryBlueprintPersistence implements BlueprintsPersistence {
     }
     return bp;
   }
-
-  //Nuevo metodo para obtener todos los planos requerido para punto 3 de parte 1
   @Override
   public Set<Blueprint> getAllBlueprints() throws BlueprintNotFoundException {
-    Set<Blueprint> result = new HashSet<>();
-    for (Tuple<String, String> key : blueprints.keySet()) {
-      result.add(blueprints.get(key));
-    }
-    if (result.isEmpty()) {
-      throw new BlueprintNotFoundException("Blueprints not found");
-    }
-    return result;
+      Set<Blueprint> result = new HashSet<>();
+  
+      for (Map.Entry<Tuple<String, String>, Blueprint> entry : blueprints.entrySet()) {
+          result.add(entry.getValue());
+      }
+  
+      if (result.isEmpty()) {
+          throw new BlueprintNotFoundException("Blueprints not found");
+      }
+  
+      return result;
   }
+  
+
 }

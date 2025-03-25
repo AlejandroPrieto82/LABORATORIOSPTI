@@ -22,7 +22,7 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest(classes = BlueprintsAPIApplication.class)
-public class ApplicationServicesTests {
+class ApplicationServicesTests { // Eliminado "public"
 
   @Mock
   private BlueprintsPersistence blueprintsPersistence; // Mock para el repositorio
@@ -34,17 +34,17 @@ public class ApplicationServicesTests {
   private BlueprintsServices blueprintsServices; // Servicio que se va a probar
 
   @BeforeEach
-  public void setUp() {
+  void setUp() { // Eliminado "public"
     MockitoAnnotations.openMocks(this); // Inicializa los mocks
   }
 
   @Test
-  public void contextLoads() {
+  void contextLoads() {
     // Verifica que el contexto de la aplicación se carga correctamente
   }
 
   @Test
-  public void getBlueprintsByAuthorTest() throws BlueprintNotFoundException {
+  void getBlueprintsByAuthorTest() throws BlueprintNotFoundException { // Eliminado "public"
     // Definir el comportamiento del mock
     Set<Blueprint> blueprints = new HashSet<>();
     Point[] pts = new Point[] { new Point(140, 140), new Point(115, 115) };
@@ -68,7 +68,7 @@ public class ApplicationServicesTests {
   }
 
   @Test
-  public void addNewBlueprintTest() throws BlueprintPersistenceException {
+  void addNewBlueprintTest() throws BlueprintPersistenceException { // Eliminado "public"
     // Crear un nuevo plano
     Point[] pts = new Point[] { new Point(140, 140), new Point(115, 115) };
     Blueprint bp = new Blueprint("authorPrueba", "bpPrueba", pts);
@@ -84,7 +84,7 @@ public class ApplicationServicesTests {
   }
 
   @Test
-  public void getBlueprintTest() throws BlueprintNotFoundException {
+  void getBlueprintTest() throws BlueprintNotFoundException { // Eliminado "public"
     // Crear un nuevo plano
     Point[] pts = new Point[] { new Point(140, 140), new Point(115, 115) };
     Blueprint bp = new Blueprint("authorPrueba", "bpPrueba", pts);
@@ -108,7 +108,7 @@ public class ApplicationServicesTests {
   }
 
   @Test
-  public void getBlueprintNotFoundTest() throws BlueprintNotFoundException {
+  void getBlueprintNotFoundTest() throws BlueprintNotFoundException { // Eliminado "public"
     // Configurar el mock para que lance una excepción
     when(blueprintsPersistence.getBlueprint("authorPrueba", "nonExistent"))
       .thenThrow(new BlueprintNotFoundException("Blueprint not found"));
@@ -123,7 +123,7 @@ public class ApplicationServicesTests {
   }
 
   @Test
-  public void getAllBlueprintsTest() throws BlueprintNotFoundException {
+  void getAllBlueprintsTest() throws BlueprintNotFoundException { // Eliminado "public"
     // Crear algunos planos
     Set<Blueprint> blueprints = new HashSet<>();
     Point[] pts1 = new Point[] { new Point(140, 140), new Point(115, 115) };

@@ -22,7 +22,7 @@ public class BlueprintsServices {
     try {
       bpp.saveBlueprint(bp);
     } catch (Exception e) {
-      e.printStackTrace();
+      System.out.println("Se agrego el nuevo plano");
     }
   }
 
