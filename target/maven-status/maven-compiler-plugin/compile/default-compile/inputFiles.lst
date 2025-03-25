@@ -1,0 +1,16 @@
+D:\Descargas\Lab5\src\main\java\edu\eci\arsw\blueprints\controllers\ResourceNotFoundException.java
+D:\Descargas\Lab5\src\main\java\edu\eci\arsw\blueprints\persistence\impl\InMemoryBlueprintPersistence.java
+D:\Descargas\Lab5\src\main\java\edu\eci\arsw\blueprints\controllers\BlueprintAPIController.java
+D:\Descargas\Lab5\src\main\java\edu\eci\arsw\blueprints\filter\BlueprintFilter.java
+D:\Descargas\Lab5\src\main\java\edu\eci\arsw\blueprints\persistence\BlueprintsPersistence.java
+D:\Descargas\Lab5\src\main\java\edu\eci\arsw\blueprints\filter\impl\RedundancyFilter.java
+D:\Descargas\Lab5\src\main\java\edu\eci\arsw\blueprints\persistence\BlueprintPersistenceException.java
+D:\Descargas\Lab5\src\main\java\edu\eci\arsw\blueprints\filter\impl\SubsamplingFilter.java
+D:\Descargas\Lab5\src\main\java\edu\eci\arsw\blueprints\services\BlueprintsServices.java
+D:\Descargas\Lab5\src\main\java\edu\eci\arsw\blueprintsapi\BlueprintsAPIApplication.java
+D:\Descargas\Lab5\src\main\java\edu\eci\arsw\blueprints\persistence\BlueprintNotFoundException.java
+D:\Descargas\Lab5\src\main\java\edu\eci\arsw\blueprints\persistence\impl\Tuple.java
+D:\Descargas\Lab5\src\main\java\edu\eci\arsw\blueprints\model\Point.java
+D:\Descargas\Lab5\src\main\java\edu\eci\arsw\blueprints\config\AppConfig.java
+D:\Descargas\Lab5\src\main\java\edu\eci\arsw\blueprints\model\Blueprint.java
+D:\Descargas\Lab5\src\main\java\edu\eci\arsw\blueprints\ui\Main.java
