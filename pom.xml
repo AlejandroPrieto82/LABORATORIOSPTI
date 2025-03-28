@@ -42,7 +42,7 @@
 		<dependency>
     		<groupId>org.aspectj</groupId>
     		<artifactId>aspectjweaver</artifactId>
-    		<version>1.9.7</version> <!-- O la versión más reciente disponible -->
+    		<version>1.9.22.1</version> <!-- O la versión más reciente disponible -->
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
